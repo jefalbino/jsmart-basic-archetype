@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-config>
+    <package-scan>${groupId}.bean</package-scan>
+
+    <welcome-url>/home</welcome-url>
+
+    <url-patterns>
+        <url-pattern>/home</url-pattern>
+    </url-patterns>
+
+    <message-files>
+        <message-file>texts</message-file>
+    </message-files>
+</web-config>
+
