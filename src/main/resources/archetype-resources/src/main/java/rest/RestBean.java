@@ -1,27 +1,26 @@
 package ${groupId}.rest;
 
 import com.jsmart5.framework.annotation.PathBean;
+import com.jsmart5.framework.manager.PathRequestHandler;
 import com.jsmart5.framework.manager.WebPathRequest;
+import ${groupId}.adapter.Adapter;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 
-@PathBean(path = "/home/v1")
+@PathBean(path = "/home/v1/{user}")
 public class RestBean extends WebPathRequest {
 
     @Override
-    public void post(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void post(final PathRequestHandler requestHandler) throws Exception {
 
-        String line = null;
-        final StringBuffer sb = new StringBuffer();
+        System.out.println(requestHandler.getRequestPath());
 
-        BufferedReader reader = request.getReader();
-        while ((line = reader.readLine()) != null) {
-            sb.append(line);
-        }
+        System.out.println(requestHandler.getPathParam("user"));
 
-        System.out.println(request.getQueryString());
-        System.out.println(sb.toString());
+        System.out.println(requestHandler.getQueryParams());
+
+        System.out.println(requestHandler.getContentAsString());
+
+        System.out.println(requestHandler.getContentFromJson(Adapter.class));
     }
+
 }

@@ -7,8 +7,8 @@
         <source>src/main/java/bean/HomeBean.java</source>
 		<source>src/main/java/async/ClockBean.java</source>
 		<source>src/main/java/rest/RestBean.java</source>
-		<source>src/main/java/filter/CustomFilter.java</source>
-		<source>src/main/java/servlet/CustomServlet.java</source>
+		<source>src/main/java/adapter/Adapter.java</source>
+		<source>src/main/java/service/SpringService.java</source>
     </sources>
 
     <resources>
