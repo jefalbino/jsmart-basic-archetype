@@ -5,6 +5,10 @@
 
     <sources>
         <source>src/main/java/bean/HomeBean.java</source>
+		<source>src/main/java/async/ClockBean.java</source>
+		<source>src/main/java/rest/RestBean.java</source>
+		<source>src/main/java/filter/CustomFilter.java</source>
+		<source>src/main/java/servlet/CustomServlet.java</source>
     </sources>
 
     <resources>

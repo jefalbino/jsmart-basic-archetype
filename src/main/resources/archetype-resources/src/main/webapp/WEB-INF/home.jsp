@@ -12,16 +12,17 @@
 
     <body class="container">
 		<div class="col-md-6" style="margin-top: 50px;">
-			<sm:form>
-				<!-- Alert to provide response from server -->
-				<sm:alert id="feedback">
-					<sm:header title="@{texts.basic.archetype.feedback.alert}" />
-					<!-- Message will be added via WebContext on HomeBean -->
-					<div style="text-align: right;">
-						<sm:button label="I got it!" onClick="$('#feedback').alert('close');"/>
-					</div>
-				</sm:alert>
 
+		    <!-- Alert to provide response from server -->
+            <sm:alert id="feedback">
+                <sm:header title="@{texts.basic.archetype.feedback.alert}" />
+                <!-- Message will be added via WebContext on HomeBean -->
+                <div style="text-align: right;">
+                    <sm:button label="I got it!" onClick="$('#feedback').alert('close');"/>
+                </div>
+            </sm:alert>
+
+			<sm:form>
 				<sm:output type="p" value="@{texts.basic.archetype.output.value}" />
 
 				<!--  Input value to be sent to server side -->
@@ -36,8 +37,36 @@
 					<!-- Animated load will replace the icon during the request -->
 					<sm:load />
 				</sm:button>
+
+                <p style="float: right; margin-top: 10px;">
+                    <sm:icon name="glyphicon-time" style="font-size: 15px;" />
+				    <sm:output id="clock-id" style="margin-left: 10px;" value="" />
+				</p>
 			</sm:form>
+
+			<sm:async id="clock" path="/home/clock" withCredentials="false">
+			    <sm:asyncevent event="clock-event" execute="updateClock" />
+			</sm:async>
+
+			<sm:rest endpoint="/home/v1" method="post">
+
+			    <sm:input value="bla" rest="string" />
+
+                <sm:button id="rest-btn" ajax="true" label="REST Endpoint" onComplete="requestOk">
+                    <sm:param name="nameOne" value="valueOne" />
+                    <sm:param name="nameTwo" value="valueTwo" />
+                </sm:button>
+			</sm:rest>
 		</div>
+
+		<script type="text/javascript">
+		    function updateClock(event) {
+		        $('#clock-id').text(event.data);
+		    }
+		    function requestOk(xhr, status) {
+		        console.log(xhr);
+		    }
+		</script>
     </body>
 
 </html>
