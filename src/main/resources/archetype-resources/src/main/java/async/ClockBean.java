@@ -1,4 +1,4 @@
-package ${groupId}.async;
+package ${package}.async;
 
 import com.jsmart5.framework.annotation.AsyncBean;
 import com.jsmart5.framework.listener.WebAsyncListener;
@@ -9,8 +9,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import ${package}.service.SpringService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @AsyncBean(asyncPath = "/home/clock")
 public class ClockBean implements WebAsyncListener {
+
+    @Autowired
+    private SpringService springService;
 
     private volatile boolean finished = false;
 

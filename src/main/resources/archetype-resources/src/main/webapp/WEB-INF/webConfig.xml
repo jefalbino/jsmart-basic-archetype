@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-config>
-    <package-scan>${groupId}</package-scan>
+    <package-scan>${package}</package-scan>
 
     <session-timeout>30</session-timeout>
 

@@ -1,4 +1,4 @@
-package ${groupId}.service;
+package ${package}.service;
 
 import org.springframework.stereotype.Service;
 

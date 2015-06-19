@@ -1,7 +1,9 @@
-package ${groupId}.adapter;
+package ${package}.adapter;
 
 import java.util.Arrays;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Adapter {
 
     private String input;

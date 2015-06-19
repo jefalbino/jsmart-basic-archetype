@@ -1,26 +1,38 @@
-package ${groupId}.rest;
+package ${package}.rest;
+
+import ${package}.adapter.Adapter;
+import ${package}.service.SpringService;
 
 import com.jsmart5.framework.annotation.PathBean;
 import com.jsmart5.framework.manager.PathRequestHandler;
 import com.jsmart5.framework.manager.WebPathRequest;
-import ${groupId}.adapter.Adapter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
-@PathBean(path = "/home/v1/{user}")
+import java.util.Map;
+
+@PathBean(path = "/home/v1/test/{username}")
 public class RestBean extends WebPathRequest {
+
+    @Autowired
+    private SpringService springService;
 
     @Override
     public void post(final PathRequestHandler requestHandler) throws Exception {
 
-        System.out.println(requestHandler.getRequestPath());
+        String requestPath = requestHandler.getRequestPath();
+        System.out.println("Request path: " + requestPath);
 
-        System.out.println(requestHandler.getPathParam("user"));
+        String userPathParam = requestHandler.getPathParam("username");
+        System.out.println("User path parameter: " + userPathParam);
 
-        System.out.println(requestHandler.getQueryParams());
+        Map<String, String> queryParams = requestHandler.getQueryParams();
+        System.out.println("Request query parameters: " + queryParams);
 
-        System.out.println(requestHandler.getContentAsString());
+        Adapter adapter = requestHandler.getContentFromJson(Adapter.class);
+        System.out.println("JSON converted into class: " + adapter);
 
-        System.out.println(requestHandler.getContentFromJson(Adapter.class));
+        requestHandler.writeResponseAsXml(adapter);
     }
 
 }

@@ -11,9 +11,12 @@
     </head>
 
     <body class="container">
+
+        <!-- Example of form submitted via ajax to WebBean mapped on server and alert to provide response -->
         <div class="col-md-6" style="margin-top: 50px;">
 
-            <!-- Alert to provide response from server -->
+
+            <!-- Alert to provide response from WebBean -->
             <sm:alert id="feedback">
                 <sm:header title="@{texts.basic.archetype.feedback.alert}" />
                 <!-- Message will be added via WebContext on HomeBean -->
@@ -31,6 +34,11 @@
                     <sm:validate text="@{texts.basic.archetype.input.value.required}" />
                 </sm:input>
 
+                <sm:radiogroup label="Radio group" selectValue="@{homeBean.radioValue}" inline="true">
+                    <sm:checklist values="@{homeBean.radioValues}" />
+                    <sm:validate text="At lease one radio must be checked" />
+                </sm:radiogroup>
+
                 <sm:button id="archetype-btn" ajax="true" label="Submit Value" action="@{homeBean.buttonAction}">
                     <!-- Glyphicon to be placed inside button -->
                     <sm:icon name="glyphicon-share-alt" />
@@ -38,22 +46,28 @@
                     <sm:load />
                 </sm:button>
 
+                <!-- The output below will be updated via async function updateClock -->
                 <p style="float: right; margin-top: 10px;">
                     <sm:icon name="glyphicon-time" style="font-size: 15px;" />
                     <sm:output id="clock-id" style="margin-left: 10px;" value="" />
                 </p>
             </sm:form>
 
+            <!-- Example of asynchronous request using async component to start server event from AsyncBean mapped on server -->
             <sm:async id="clock" path="/home/clock" withCredentials="false">
                 <sm:asyncevent event="clock-event" execute="updateClock" />
             </sm:async>
         </div>
 
+
+        <!-- Example of REST request sent via rest component to RestBean mapped on server -->
         <div class="col-md-6" style="margin-top: 50px;">
 
-            <sm:rest endpoint="/home/v1/test" method="post">
+            <!-- The rest component is used to facilitate the process of sending input data via REST request as JSON or XML -->
+            <sm:rest endpoint="/home/v1/test/yourname" method="post">
                 <sm:output type="p" value="Enter the values below and push the button to send via Rest" />
 
+                <!-- The rest attribute on components indicate the REST attribute name to be sent on payload -->
                 <sm:input rest="input" label="@{texts.basic.archetype.input.label}">
                     <sm:validate text="The input value is required" />
                 </sm:input>
@@ -66,21 +80,36 @@
                     <sm:validate text="At least one check group check is required" />
                 </sm:checkgroup>
 
+                <!-- Here is where the REST request will be triggered, the button attributes to register callbacks for AJAX request phases -->
                 <sm:button id="rest-btn" ajax="true" label="Rest Request" onSuccess="requestOk">
-                    <sm:icon name="glyphicon-globe" />
-                    <sm:load />
+
+                    <!-- This parameters will be sent as query parameters -->
                     <sm:param name="paramOne" value="valueOne" />
                     <sm:param name="paramTwo" value="valueTwo" />
+
+                    <!-- Glyphicon to be placed inside button -->
+                    <sm:icon name="glyphicon-globe" />
+                    <!-- Animated load will replace the icon during the request -->
+                    <sm:load />
                 </sm:button>
             </sm:rest>
+
+            <sm:panel id="rest-response" style="display: none; margin-top: 20px;">
+                <sm:header title="Rest response" />
+                <sm:panelbody id="rest-response-body">
+                    <!-- The REST request response will be placed here -->
+                </sm:panelbody>
+            </sm:panel>
         </div>
 
+        <!-- Callback functions -->
         <script type="text/javascript">
             function updateClock(event) {
                 $('#clock-id').text(event.data);
             }
             function requestOk(data, status, xhr) {
-                console.log(data);
+                $('#rest-response-body').text(new XMLSerializer().serializeToString(data));
+                $('#rest-response').show();
             }
         </script>
     </body>
