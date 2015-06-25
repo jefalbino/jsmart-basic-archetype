@@ -64,7 +64,7 @@
         <div class="col-md-6" style="margin-top: 50px;">
 
             <!-- The rest component is used to facilitate the process of sending input data via REST request as JSON or XML -->
-            <sm:rest endpoint="/home/v1/test/yourname" method="post">
+            <sm:rest endpoint="/home/v1/test" method="post">
                 <sm:output type="p" value="Enter the values below and push the button to send via Rest" />
 
                 <!-- The rest attribute on components indicate the REST attribute name to be sent on payload -->
