@@ -15,7 +15,7 @@
 	<packaging>jar</packaging>
   
 	<name>JSmart5 Basic Archetype</name>
-	<description>Java Web Development Framework Basic Archetype</description>
+	<description>Maven archetype to create basic web project based on JSmart5</description>
 	<url>http://jsmartframework.com</url>
 
 	<licenses>

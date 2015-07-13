@@ -29,14 +29,7 @@ public class ClockBean implements WebAsyncListener {
             public void run() {
                 try {
                     while (!finished) {
-                        final ServletResponse response = asyncContext.getResponse();
-                        response.setContentType("text/event-stream");
-
-                        PrintWriter printWriter = response.getWriter();
-                        printWriter.write("event:clock-event" + "\n");
-                        printWriter.write("data:" + new Date() + "\n\n");
-                        printWriter.flush();
-
+                        WebContext.writeResponseAsEventStream(asyncContext, "clock-event", new Date());
                         Thread.sleep(1000);
                     }
                 } catch (IOException | InterruptedException e) {
