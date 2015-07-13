@@ -6,8 +6,6 @@
     <sources>
         <source>src/main/java/bean/HomeBean.java</source>
 		<source>src/main/java/async/ClockBean.java</source>
-		<source>src/main/java/rest/RestController.java</source>
-		<source>src/main/java/adapter/Adapter.java</source>
 		<source>src/main/java/service/SpringService.java</source>
     </sources>
 
