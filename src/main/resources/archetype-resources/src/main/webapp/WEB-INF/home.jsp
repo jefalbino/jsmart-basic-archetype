@@ -16,7 +16,7 @@
             Example of form submitted via Ajax to WebBean mapped on server and alert
             to provide response from server
         -->
-        <div class="col-md-6" style="float: none; margin-top: 50px;">
+        <div class="col-md-6" style="float: none; margin: auto; margin-top: 50px;">
 
             <!-- Alert to provide response from WebBean -->
             <sm:alert id="feedback">
@@ -41,35 +41,15 @@
                     <sm:validate text="At lease one radio must be checked" />
                 </sm:radiogroup>
 
-                <sm:button id="archetype-btn" ajax="true" label="Submit Value" action="@{homeBean.buttonAction}">
+                <sm:button id="archetype-btn" ajax="true" label="Submit Value" action="@{homeBean.buttonAction}"
+                        style="float: right;">
                     <!-- Glyphicon to be placed inside button -->
                     <sm:icon name="glyphicon-share-alt" />
                     <!-- Animated load will replace the icon during the request -->
                     <sm:load />
                 </sm:button>
-
-                <!-- The output below will be updated via async function updateClock -->
-                <p style="float: right; margin-top: 10px;">
-                    <sm:icon name="glyphicon-time" style="font-size: 15px;" />
-                    <sm:output id="clock-id" style="margin-left: 10px;" value="" />
-                </p>
             </sm:form>
-
-            <!--
-                Example of asynchronous request using async component to start server event
-                from AsyncBean mapped on server
-            -->
-            <sm:async id="clock" path="/home/clock" withCredentials="false">
-                <sm:asyncevent event="clock-event" execute="updateClock" />
-            </sm:async>
         </div>
-
-        <!-- Callback functions -->
-        <script type="text/javascript">
-            function updateClock(event) {
-                $('#clock-id').text(event.data);
-            }
-        </script>
     </body>
 
 </html>

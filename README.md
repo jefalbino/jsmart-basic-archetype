@@ -1,2 +1,2 @@
 # jsmart5-basic-archetype
-Basic maven archetype to create web project based on JSmart5
+Maven archetype to create basic web project based on JSmart5

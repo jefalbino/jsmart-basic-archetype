@@ -8,7 +8,6 @@
 
     <url-patterns>
         <url-pattern>/home</url-pattern>
-        <url-pattern>/home/clock</url-pattern>
     </url-patterns>
 
     <message-files>
