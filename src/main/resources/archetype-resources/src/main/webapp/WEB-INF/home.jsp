@@ -31,7 +31,7 @@
                 <sm:output type="p" value="@{texts.basic.archetype.output.value}" />
 
                 <!--  Input value to be sent to server side -->
-                <sm:input label="Input value" value="@{homeBean.inputValue}" placeHolder="Enter the value here">
+                <sm:input label="Input value" value="@{homeBean.inputValue}" placeholder="Enter the value here">
                     <!-- Validate the input before sending to server. Remove this line and check the PreSubmit in action :) -->
                     <sm:validate text="@{texts.basic.archetype.input.value.required}" />
                 </sm:input>
