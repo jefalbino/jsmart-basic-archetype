@@ -10,12 +10,12 @@
 	</parent>
  
 	<groupId>com.jsmartframework</groupId>
-	<artifactId>jsmart5-basic-archetype</artifactId>
+	<artifactId>jsmart-basic-archetype</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
   
-	<name>JSmart5 Basic Archetype</name>
-	<description>Maven archetype to create basic web project based on JSmart5</description>
+	<name>JSmart Basic Archetype</name>
+	<description>Maven archetype to create basic web project based on JSmart</description>
 	<url>http://jsmartframework.com</url>
 
 	<licenses>
@@ -27,9 +27,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git@github.com:jefalbino/jsmart5-basic-archetype.git</connection>
-		<developerConnection>scm:git:git@github.com:jefalbino/jsmart5-basic-archetype.git</developerConnection>
-		<url>git@github.com:jefalbino/jsmart5-basic-archetype.git</url>
+		<connection>scm:git:git@github.com:jefalbino/jsmart-basic-archetype.git</connection>
+		<developerConnection>scm:git:git@github.com:jefalbino/jsmart-basic-archetype.git</developerConnection>
+		<url>git@github.com:jefalbino/jsmart-basic-archetype.git</url>
 	</scm>
 
 </project>
