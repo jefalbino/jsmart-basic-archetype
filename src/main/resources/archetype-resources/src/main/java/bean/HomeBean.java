@@ -1,9 +1,9 @@
 package ${package}.bean;
 
-import com.jsmart5.framework.util.WebText;
-import com.jsmart5.framework.manager.WebContext;
-import com.jsmart5.framework.annotation.WebBean;
-import com.jsmart5.framework.annotation.PreSubmit;
+import com.jsmartframework.web.util.WebText;
+import com.jsmartframework.web.manager.WebContext;
+import com.jsmartframework.web.annotation.WebBean;
+import com.jsmartframework.web.annotation.PreSubmit;
 
 import java.util.Map;
 import java.util.HashMap;
