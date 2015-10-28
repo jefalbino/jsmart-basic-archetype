@@ -21,7 +21,7 @@ public class HomeBean {
 
     private String radioValue;
 
-    @PreSubmit(forAction = "buttonAction")
+    @PreSubmit(onActions = {"buttonAction"})
     public boolean preValidate() {
         boolean validated = true;
 
