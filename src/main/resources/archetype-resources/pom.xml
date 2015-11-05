@@ -11,8 +11,8 @@
 
     <repositories>
         <repository>
-			<id>oss.sonatype</id>
-			<url>https://oss.sonatype.org/content/repositories/releases/</url>
+            <id>oss.sonatype</id>
+	    <url>https://oss.sonatype.org/content/repositories/releases/</url>
         </repository>
     </repositories>
 
